@@ -95,9 +95,20 @@ if(player.openContainer != null && player.openContainer instanceof ContainerItem
 
 }
 
-
-
 @Override
+public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World,EntityPlayer par3EntityPlayer) 
+{
+	if(!par2World.isRemote && par3EntityPlayer instanceof EntityPlayer)
+	{
+		if(par3EntityPlayer.getHeldItem() != null && par3EntityPlayer.getHeldItem().getItem() instanceof ItemStore)
+		{
+			par3EntityPlayer.openGui(InventoryItemMain.instance, InventoryItemMain.ItemInventoryGuiIndex, par2World, (int) par3EntityPlayer.posX, (int) par3EntityPlayer.posY, (int) par3EntityPlayer.posZ);
+		}
+	}
+	return par1ItemStack;
+}
+
+/*@Override
 public boolean onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, net.minecraft.util.BlockPos pos, net.minecraft.util.EnumFacing side, float hitX, float hitY, float hitZ) 
 {
 	if(!worldIn.isRemote && playerIn instanceof EntityPlayer)
@@ -110,7 +121,7 @@ public boolean onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, 
 	return true;
 	
 	
-}
+}*/
 
 
 @Override
