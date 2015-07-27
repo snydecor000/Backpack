@@ -16,7 +16,18 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-
+/.metadata/
+/bin/
+/eclipse/*
+/.gradle/gradle.log
+\.gradle\2.0\taskArtifacts\*
+*/tmp/*
+*/natives/*
+/.classpath
+*Thumbs.db
+/build/libs/*
+.gradle/gradle.log
+*.class
 # =========================
 # Operating System Files
 # =========================
